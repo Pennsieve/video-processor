@@ -52,7 +52,7 @@ requests==2.18.4
 s3transfer==0.1.13
 singledispatch==3.4.0.3
 six==1.11.0
-urllib3==1.22
+urllib3==1.24.2
 websocket-client==0.47.0
 Werkzeug==0.14.1
 wrapt==1.10.11
