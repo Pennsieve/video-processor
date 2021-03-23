@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  video_processor:
+    build:
+      context: .
+      target: prod
+    image: pennsieve/video-processor:${IMAGE_TAG}
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+  video_processor_test:
+    build:
+      context: .
+      target: test
+    command: ["python", "-m", "pytest", "-s", "-x", "--cov-report", "html:/docker_scratch/coverage-report", "--cov=video_processor", "tests/"]
+    image: pennsieve/video-processor:${IMAGE_TAG}-test
+    volumes:
+      - ./video_processor/:/app/video_processor/
+      - ./tests/:/app/tests/
+    env_file:
+      - test.env

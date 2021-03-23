@@ -1,0 +1,16 @@
+data/
+devvenv/
+htmlcov/
+tmp/
+venv/
+junit_test_coverage
+.DS_Store
+.cache
+.coverage
+.pytest_cache/
+*.avi
+*.mp4
+*.swp
+*.pyc
+*.zip
+.idea/
